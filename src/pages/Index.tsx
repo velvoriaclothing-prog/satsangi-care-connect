@@ -171,6 +171,43 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Highlights Slider */}
+        <section className="bg-background py-16 md:py-20" aria-labelledby="highlights-heading">
+          <div className="container">
+            <div className="max-w-2xl mx-auto text-center mb-10">
+              <Badge className="bg-secondary text-secondary-foreground border-0 mb-4">
+                <Sparkles className="w-3 h-3 mr-1" /> Quick Guide
+              </Badge>
+              <h2 id="highlights-heading" className="text-3xl md:text-4xl font-bold mb-3">Everything You Need, In One Place</h2>
+              <p className="text-muted-foreground">Swipe through to discover services, pricing, location and how to book your visit.</p>
+            </div>
+            <Carousel
+              opts={{ align: "start", loop: true }}
+              plugins={[autoplay.current]}
+              className="w-full max-w-6xl mx-auto"
+            >
+              <CarouselContent className="-ml-4">
+                {highlights.map((h) => (
+                  <CarouselItem key={h.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="h-full p-6 shadow-soft hover:shadow-card transition-smooth border-border flex flex-col">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center mb-4 shadow-soft">
+                        <h.icon className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                      <h3 className="font-semibold text-lg mb-2">{h.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4 flex-1">{h.desc}</p>
+                      <Button variant="outline" size="sm" asChild className="w-fit">
+                        <a href={h.href}>{h.cta} →</a>
+                      </Button>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex -left-4" />
+              <CarouselNext className="hidden sm:flex -right-4" />
+            </Carousel>
+          </div>
+        </section>
+
         {/* Stats */}
         <section id="about" className="container py-16 md:py-24" aria-labelledby="stats-heading">
           <h2 id="stats-heading" className="sr-only">Practice at a Glance</h2>
