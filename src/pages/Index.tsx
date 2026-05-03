@@ -47,8 +47,55 @@ const faqs = [
   { q: "Are diagnostic tests available at the clinic?", a: "Yes - the clinic offers Liver Elastography, Hb Electrophoresis, Random Blood Sugar testing and other diagnostic services on-site." },
 ];
 
+const highlights = [
+  {
+    icon: Stethoscope,
+    title: "Expert Consultation",
+    desc: "Detailed, unhurried consultations from an MBBS, MD physician who truly listens.",
+    cta: "View Services",
+    href: "#services",
+  },
+  {
+    icon: Calendar,
+    title: "Easy Booking",
+    desc: "Walk in or call 089596 77717 to reserve your slot. Open daily from 6:00 PM.",
+    cta: "Call Now",
+    href: `tel:${PHONE}`,
+  },
+  {
+    icon: MapPin,
+    title: "Convenient Location",
+    desc: "Centrally located at 320, 60 Feet Rd, Palhar Nagar, Indore. Parking available.",
+    cta: "Get Directions",
+    href: "#contact",
+  },
+  {
+    icon: IndianRupee,
+    title: "Transparent Pricing",
+    desc: "Flat ₹500 consultation fee. No hidden charges, no unnecessary tests.",
+    cta: "Learn More",
+    href: "#about",
+  },
+  {
+    icon: Microscope,
+    title: "On-Site Diagnostics",
+    desc: "Liver Elastography, Hb Electrophoresis & blood sugar testing right at the clinic.",
+    cta: "Explore Tests",
+    href: "#services",
+  },
+  {
+    icon: Star,
+    title: "5.0 ★ Rated",
+    desc: "Trusted by 278+ patients across Indore for compassionate, ethical medical care.",
+    cta: "Read Reviews",
+    href: "#reviews",
+  },
+];
+
 const Index = () => {
   const callDoctor = () => { window.location.href = `tel:${PHONE}`; };
+  const autoplay = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
+
 
   return (
     <div className="min-h-screen bg-background">
