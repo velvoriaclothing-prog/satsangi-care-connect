@@ -303,7 +303,7 @@ const Index = () => {
         </section>
 
         {/* Stats */}
-        <section id="about" className="container py-16 md:py-24" aria-labelledby="stats-heading">
+        <section className="container py-16 md:py-24" aria-labelledby="stats-heading">
           <h2 id="stats-heading" className="sr-only">Practice at a Glance</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
