@@ -285,6 +285,11 @@ const Index = () => {
                     </div>
                   </div>
                 </address>
+                <Button variant="secondary" size="lg" asChild className="w-full sm:w-auto">
+                  <a href="https://www.google.com/maps/search/?api=1&query=Dr+S+Satsangi+Clinic+320+60+Feet+Rd+Palhar+Nagar+Indore+452005" target="_blank" rel="noopener noreferrer">
+                    <MapPin className="w-4 h-4 mr-2" /> Get Directions on Google Maps
+                  </a>
+                </Button>
               </div>
               <Card className="p-8 shadow-card">
                 <h3 className="text-2xl font-bold mb-2">Book a Consultation</h3>
