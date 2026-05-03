@@ -117,11 +117,104 @@ const Index = () => {
             <a href="#faq" className="text-muted-foreground hover:text-primary transition-smooth">FAQ</a>
             <a href="#contact" className="text-muted-foreground hover:text-primary transition-smooth">Contact</a>
           </nav>
-          <Button onClick={callDoctor} size="sm" className="bg-gradient-hero hover:opacity-90 shadow-soft">
-            <Phone className="w-4 h-4 mr-2" /> Call Now
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button onClick={callDoctor} size="sm" className="bg-gradient-hero hover:opacity-90 shadow-soft hidden sm:inline-flex">
+              <Phone className="w-4 h-4 mr-2" /> Call Now
+            </Button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" aria-label="Open menu">
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[85vw] sm:w-96 overflow-y-auto">
+                <SheetHeader className="text-left">
+                  <SheetTitle className="flex items-center gap-2">
+                    <div className="w-9 h-9 rounded-lg bg-gradient-hero flex items-center justify-center shadow-soft">
+                      <Stethoscope className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    Dr. S Satsangi
+                  </SheetTitle>
+                </SheetHeader>
+
+                <div className="mt-6 space-y-6">
+                  {/* Quick Nav */}
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Explore</div>
+                    <nav className="grid gap-1">
+                      {[
+                        { icon: Info, label: "About the Doctor", href: "#about" },
+                        { icon: Stethoscope, label: "Services & Treatments", href: "#services" },
+                        { icon: Award, label: "Why Choose Us", href: "#why" },
+                        { icon: Star, label: "Patient Reviews", href: "#reviews" },
+                        { icon: HelpCircle, label: "FAQs", href: "#faq" },
+                        { icon: MapPin, label: "Location & Contact", href: "#contact" },
+                      ].map((item) => (
+                        <SheetClose asChild key={item.label}>
+                          <a
+                            href={item.href}
+                            className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-smooth text-sm font-medium"
+                          >
+                            <item.icon className="w-4 h-4 text-primary" />
+                            {item.label}
+                          </a>
+                        </SheetClose>
+                      ))}
+                    </nav>
+                  </div>
+
+                  {/* Contact card */}
+                  <Card className="p-4 shadow-soft border-border space-y-3">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Contact</div>
+                    <a href={`tel:${PHONE}`} className="flex items-start gap-3 text-sm hover:text-primary transition-smooth">
+                      <Phone className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                      <div>
+                        <div className="font-semibold">{PHONE_DISPLAY}</div>
+                        <div className="text-xs text-muted-foreground">Tap to call directly</div>
+                      </div>
+                    </a>
+                    <div className="flex items-start gap-3 text-sm">
+                      <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                      <div className="text-muted-foreground">
+                        320, 60 Feet Rd, Sector B,<br />Palhar Nagar, Indore, MP – 452005
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 text-sm">
+                      <Clock className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                      <div className="text-muted-foreground">Opens daily at 6:00 PM</div>
+                    </div>
+                    <div className="flex items-start gap-3 text-sm">
+                      <IndianRupee className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                      <div className="text-muted-foreground">Consultation Fee: <span className="font-semibold text-foreground">₹500</span></div>
+                    </div>
+                  </Card>
+
+                  {/* CTAs */}
+                  <div className="grid gap-2">
+                    <Button onClick={callDoctor} className="bg-gradient-hero hover:opacity-90 shadow-soft w-full">
+                      <Phone className="w-4 h-4 mr-2" /> Call Now
+                    </Button>
+                    <Button variant="outline" asChild className="w-full">
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=320+60+Feet+Rd+Sector+B+Palhar+Nagar+Indore"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MapPin className="w-4 h-4 mr-2" /> Get Directions
+                      </a>
+                    </Button>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground text-center pt-2">
+                    MBBS, MD (Medicine) · 5.0 ★ 278 Reviews
+                  </p>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
+
 
       <main>
         {/* Hero */}
