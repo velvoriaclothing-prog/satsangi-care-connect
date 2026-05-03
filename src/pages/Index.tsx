@@ -2,7 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Phone, MapPin, Clock, Star, Stethoscope, Award, CheckCircle2, Calendar, IndianRupee, Heart, Shield, Users, Activity, Microscope, Pill, HeartPulse, Brain, Droplet, ClipboardCheck } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
+import { Phone, MapPin, Clock, Star, Stethoscope, Award, CheckCircle2, Calendar, IndianRupee, Heart, Shield, Users, Activity, Microscope, Pill, HeartPulse, Brain, Droplet, ClipboardCheck, Sparkles } from "lucide-react";
 
 const doctorHero = "https://res.cloudinary.com/de19zn4f9/image/upload/v1777837022/IMG_0042_ge8pfg.jpg";
 
