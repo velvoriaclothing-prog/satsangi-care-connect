@@ -2,7 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Phone, MapPin, Clock, Star, Stethoscope, Award, CheckCircle2, Calendar, IndianRupee, Heart, Shield, Users, Activity, Microscope, Pill, HeartPulse, Brain, Droplet, ClipboardCheck } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
+import { Phone, MapPin, Clock, Star, Stethoscope, Award, CheckCircle2, Calendar, IndianRupee, Heart, Shield, Users, Activity, Microscope, Pill, HeartPulse, Brain, Droplet, ClipboardCheck, Sparkles } from "lucide-react";
 
 const doctorHero = "https://res.cloudinary.com/de19zn4f9/image/upload/v1777837022/IMG_0042_ge8pfg.jpg";
 
@@ -44,8 +47,55 @@ const faqs = [
   { q: "Are diagnostic tests available at the clinic?", a: "Yes - the clinic offers Liver Elastography, Hb Electrophoresis, Random Blood Sugar testing and other diagnostic services on-site." },
 ];
 
+const highlights = [
+  {
+    icon: Stethoscope,
+    title: "Expert Consultation",
+    desc: "Detailed, unhurried consultations from an MBBS, MD physician who truly listens.",
+    cta: "View Services",
+    href: "#services",
+  },
+  {
+    icon: Calendar,
+    title: "Easy Booking",
+    desc: "Walk in or call 089596 77717 to reserve your slot. Open daily from 6:00 PM.",
+    cta: "Call Now",
+    href: `tel:${PHONE}`,
+  },
+  {
+    icon: MapPin,
+    title: "Convenient Location",
+    desc: "Centrally located at 320, 60 Feet Rd, Palhar Nagar, Indore. Parking available.",
+    cta: "Get Directions",
+    href: "#contact",
+  },
+  {
+    icon: IndianRupee,
+    title: "Transparent Pricing",
+    desc: "Flat ₹500 consultation fee. No hidden charges, no unnecessary tests.",
+    cta: "Learn More",
+    href: "#about",
+  },
+  {
+    icon: Microscope,
+    title: "On-Site Diagnostics",
+    desc: "Liver Elastography, Hb Electrophoresis & blood sugar testing right at the clinic.",
+    cta: "Explore Tests",
+    href: "#services",
+  },
+  {
+    icon: Star,
+    title: "5.0 ★ Rated",
+    desc: "Trusted by 278+ patients across Indore for compassionate, ethical medical care.",
+    cta: "Read Reviews",
+    href: "#reviews",
+  },
+];
+
 const Index = () => {
   const callDoctor = () => { window.location.href = `tel:${PHONE}`; };
+  const autoplay = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -118,6 +168,43 @@ const Index = () => {
                 </div>
               </Card>
             </div>
+          </div>
+        </section>
+
+        {/* Highlights Slider */}
+        <section className="bg-background py-16 md:py-20" aria-labelledby="highlights-heading">
+          <div className="container">
+            <div className="max-w-2xl mx-auto text-center mb-10">
+              <Badge className="bg-secondary text-secondary-foreground border-0 mb-4">
+                <Sparkles className="w-3 h-3 mr-1" /> Quick Guide
+              </Badge>
+              <h2 id="highlights-heading" className="text-3xl md:text-4xl font-bold mb-3">Everything You Need, In One Place</h2>
+              <p className="text-muted-foreground">Swipe through to discover services, pricing, location and how to book your visit.</p>
+            </div>
+            <Carousel
+              opts={{ align: "start", loop: true }}
+              plugins={[autoplay.current]}
+              className="w-full max-w-6xl mx-auto"
+            >
+              <CarouselContent className="-ml-4">
+                {highlights.map((h) => (
+                  <CarouselItem key={h.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="h-full p-6 shadow-soft hover:shadow-card transition-smooth border-border flex flex-col">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center mb-4 shadow-soft">
+                        <h.icon className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                      <h3 className="font-semibold text-lg mb-2">{h.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4 flex-1">{h.desc}</p>
+                      <Button variant="outline" size="sm" asChild className="w-fit">
+                        <a href={h.href}>{h.cta} →</a>
+                      </Button>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex -left-4" />
+              <CarouselNext className="hidden sm:flex -right-4" />
+            </Carousel>
           </div>
         </section>
 
