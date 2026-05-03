@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Phone, MapPin, Clock, Star, Stethoscope, Award, CheckCircle2, Calendar, IndianRupee } from "lucide-react";
-import doctorHero from "@/assets/doctor-hero.jpg";
+const doctorHero = "https://res.cloudinary.com/de19zn4f9/image/upload/v1777837022/IMG_0042_ge8pfg.jpg";
 
 const PHONE = "08959677717";
 const PHONE_DISPLAY = "089596 77717";
