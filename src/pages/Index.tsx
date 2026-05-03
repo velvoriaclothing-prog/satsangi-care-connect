@@ -285,6 +285,11 @@ const Index = () => {
                     </div>
                   </div>
                 </address>
+                <Button variant="secondary" size="lg" asChild className="w-full sm:w-auto">
+                  <a href="https://www.google.com/maps/search/?api=1&query=Dr+S+Satsangi+Clinic+320+60+Feet+Rd+Palhar+Nagar+Indore+452005" target="_blank" rel="noopener noreferrer">
+                    <MapPin className="w-4 h-4 mr-2" /> Get Directions on Google Maps
+                  </a>
+                </Button>
               </div>
               <Card className="p-8 shadow-card">
                 <h3 className="text-2xl font-bold mb-2">Book a Consultation</h3>
@@ -301,6 +306,18 @@ const Index = () => {
                 </Button>
                 <p className="text-xs text-muted-foreground text-center mt-4">Available during clinic hours · 6:00 PM onwards</p>
               </Card>
+            </div>
+            <div className="mt-12 rounded-2xl overflow-hidden shadow-card border border-primary-foreground/20">
+              <iframe
+                title="Dr. S Satsangi Clinic Location - Palhar Nagar, Indore"
+                src="https://www.google.com/maps?q=320+60+Feet+Rd+Sector+B+Palhar+Nagar+Indore+452005&output=embed"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
         </section>
