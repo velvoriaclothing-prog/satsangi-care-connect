@@ -307,6 +307,18 @@ const Index = () => {
                 <p className="text-xs text-muted-foreground text-center mt-4">Available during clinic hours · 6:00 PM onwards</p>
               </Card>
             </div>
+            <div className="mt-12 rounded-2xl overflow-hidden shadow-card border border-primary-foreground/20">
+              <iframe
+                title="Dr. S Satsangi Clinic Location - Palhar Nagar, Indore"
+                src="https://www.google.com/maps?q=320+60+Feet+Rd+Sector+B+Palhar+Nagar+Indore+452005&output=embed"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
           </div>
         </section>
       </main>
